@@ -1,4 +1,7 @@
 import { Controller, Get, Param } from '@nestjs/common';
+import { json } from 'stream/consumers';
+import { fruits as exampleFruits } from './example/fruits';
+import { Fruit } from './example/fruits.model';
 import { product } from './models/product.model';
 
 // es muy importatnte qu el decorador @Controller pase el string 'products', ya que esto indica que atendera 
@@ -9,6 +12,17 @@ export class ProductsController {
     @Get()
     getHelloInProducts(): string{
         return "Productos"
+    }
+
+    // ejemplo para tutorial front-end usando ngrx/store
+
+    
+    
+
+    @Get('fruits')
+    getFruits(): Fruit[] {
+        const fruits: Fruit[] = exampleFruits
+        return fruits
     }
 
     // ejemplo de ruta anidada, en este caso devuelve array de categorias
