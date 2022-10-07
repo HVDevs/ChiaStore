@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/entities/user.model';
 import { Users } from 'src/entities/users.entity';
 import { Repository } from 'typeorm';
 
@@ -21,6 +22,8 @@ export class UsersService {
             where: [{ id: __id }]
         })
     }
+
+    
 
     async updateUser(user: Users) {
         this.usersRepository.save(user)

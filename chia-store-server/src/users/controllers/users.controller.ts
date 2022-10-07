@@ -21,6 +21,7 @@ export class UsersController {
         return this.service.newUser(user)
     }
 
+
     @Put()
     updateUser(@Body() user: Users){
         return this.service.updateUser(user)
