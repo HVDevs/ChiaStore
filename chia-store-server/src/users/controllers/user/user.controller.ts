@@ -10,7 +10,7 @@ export class UserController {
 
     @Get()
     getHello(): string {
-        return 'Hello'
+        return 'Hola'
     }
 
     @Get('users')
@@ -22,8 +22,6 @@ export class UserController {
 
     @Post('/signup')
     async createUser(@Body() username: User): Promise<User>{
-        console.log(username);
-        
         const saltOrRounds = 10;
         const hashedPassword = await bcrypt.hash(username.password, saltOrRounds);
         var _user: User = username;

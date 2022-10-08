@@ -1,41 +1,26 @@
-<style>
-    .parent {
-        display: grid;
-        padding: 1rem;
-        min-width: 80%;
-        background-color: gray;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-    }
-    
-    .div1 {
-        grid-area: 1 / 1 / 6 / 7;
-        height: 48rem;
-        background-color: #fff;
-        opacity: 0.1;
-        border-radius: 5px;
-    }
-    
-    .div3 {
-        grid-area: 2 / 2 / 5 / 4;
-        min-height: 100%;
-        width: 100%;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 25px;
-    }
-    
-    .div4 {
-        grid-area: 2 / 4 / 5 / 6;
-    }
-</style>
-<div class="parent">
-    <div class="div3">
-        <app-add-product></app-add-product>
+<div class="wrapper" [ngClass]="isActive ? 'active' : 'inactive'">
+    <div class="container">
+        <div class="blueBg">
+            <div class="box signin">
+                <h2>Ya tienes una cuenta?</h2>
+                <button class="signinBtn" (click)="showRegisterLogin()">Ingresar</button>
+            </div>
+            <div class="box signup">
+                <h2>Aun no tienes una cuenta?</h2>
+                <button class="signupBtn" (click)="showRegisterLogin()">Registrate</button>
+            </div>
+        </div>
+        <div class="formBx" [ngClass]="isActive ? 'active' : 'inactive'">
+            <div class="form signinForm">
+                <app-login></app-login>
+            </div>
+            <div class="form signupForm">
+                <app-register></app-register>
+            </div>
+        </div>
     </div>
-    <div class="div4"> </div>
 </div>
+
 
 
 <router-outlet>
